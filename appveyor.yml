@@ -20,9 +20,9 @@ build_script:
   - msbuild sp\src\games.sln /p:Configuration=Release;Platform=Win32 /m /v:m /logger:"%PROGRAMFILES%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 after_build:
-  - 7z a hl2.zip .\sp\src\game\server\.\Release_mod_hl2\server.dll .\sp\src\game\client\.\Release_mod_hl2\client.dll
+  - 7z a hl2-pdb.zip .\sp\src\game\server\.\Release_mod_hl2\server.dll .\sp\src\game\server\.\Release_mod_hl2\server.pdb .\sp\src\game\client\.\Release_mod_hl2\client.dll .\sp\src\game\client\.\Release_mod_hl2\client.pdb
 
 test: off
 
 artifacts:
-  - path: hl2.zip
+  - path: hl2-pdb.zip
